@@ -1,0 +1,42 @@
+<resources>
+    <declare-styleable name="BaseStepView">
+        <!-- 正 负号控件padding -->
+        <attr name="step_padding_left" format="dimension" />
+        <attr name="step_padding_right" format="dimension" />
+        <attr name="step_padding_top" format="dimension" />
+        <attr name="step_padding_bottom" format="dimension" />
+        <!-- 正 负号控件背景色选择器 -->
+        <attr name="step_minus_background_selector" format="reference" />
+        <attr name="step_plus_background_selector" format="reference" />
+        <!-- 正 负控件所占比例 -->
+        <attr name="step_minus_weight" format="float" />
+        <attr name="step_plus_weight" format="float" />
+
+        <!-- 输入框文本配置属性 -->
+        <attr name="input_is_input" format="boolean" /><!-- 输入框是否直接接受输入 -->
+        <attr name="input_padding_left" format="dimension" />
+        <attr name="input_padding_right" format="dimension" />
+        <attr name="input_padding_top" format="dimension" />
+        <attr name="input_padding_bottom" format="dimension" />
+        <attr name="input_font_size" format="dimension" />
+        <!-- 输入值域设置 -->
+        <attr name="input_min" format="integer" />
+        <attr name="input_max" format="integer" />
+    </declare-styleable>
+
+    <declare-styleable name="StepTextView">
+        <!-- 正 负号控件文本配置属性 -->
+        <attr name="step_font_size" format="dimension" />
+        <!-- 正 负号控件文本颜色选择器 -->
+        <attr name="step_minus_font_selector" format="reference" />
+        <attr name="step_plus_font_selector" format="reference" />
+
+        <attr name="step_minus_text" format="string" />
+        <attr name="step_plus_text" format="string" />
+
+    </declare-styleable>
+
+    <declare-styleable name="StepImageView">
+
+    </declare-styleable>
+</resources>

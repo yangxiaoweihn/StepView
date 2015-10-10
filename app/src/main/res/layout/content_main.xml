@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".MainActivity"
+    tools:showIn="@layout/activity_main">
+
+
+    <ws.dyt.test.StepTextView
+        android:id="@+id/stepTextView"
+        android:layout_width="150dp"
+        android:layout_height="40dp"
+        android:background="#a05ff4"
+        app:step_font_size="18sp"
+        app:step_minus_background_selector="@drawable/step_minus_background_selector"
+        app:step_minus_font_selector="@drawable/step_minus_font_selector"
+        app:step_minus_text="-"
+        app:step_plus_background_selector="@drawable/step_plus_background_selector"
+        app:step_plus_font_selector="@drawable/step_plus_font_selector"
+        app:step_plus_text="+"
+        app:step_padding_left="10dp"
+        app:step_padding_top="10dp"
+        app:step_padding_right="10dp"
+        app:step_minus_weight="1"
+        app:step_plus_weight="1"
+        app:input_min="5"
+        app:input_max="10"
+        app:input_is_input="true"
+        />
+
+    <TextView
+        android:background="#898765"
+        android:paddingLeft="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:text="+"
+        android:paddingRight="15dp"
+        android:textSize="14sp"/>
+    <TextView
+        android:background="#898765"
+        android:paddingLeft="10dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="+"
+        android:paddingRight="15dp"
+        android:textSize="14sp"/>
+
+    <TextView
+        android:id="@+id/tv_show"
+        android:background="#898765"
+        android:padding="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="14sp"/>
+
+</LinearLayout>
