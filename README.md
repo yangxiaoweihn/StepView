@@ -1,5 +1,5 @@
 ## 控件简介
-一个提供整数递增、递减的简易控件
+    一个提供整数递增、递减的简易控件
 ## 添加依赖
 ```
     compile 'ws.dyt.stepview:stepview:1.0'
@@ -92,7 +92,17 @@
 ```
 
 ### 添加监听器
-    <p>控件通过属性`input_min`、`input_max`设置值域范围后，可以通过设置以下监听器来监听数据的变化，设置方式为
+    -<p>控件通过属性`input_min`、`input_max`设置值域范围后，可以通过设置以下监听器来监听数据的变化，设置方式为
+    StepTextView stepTextView = (StepTextView) findViewById(R.id.stepTextView);
+    stepTextView.setOnStepChangeListener(new StepTextView.IOnStepChangeListener() {
+        @Override
+        public void onStepChanged(int step, int min, int max) {
+        }
+    
+        @Override
+        public void onError() {
+        }
+    });
      </p>
 ```java
     /**
