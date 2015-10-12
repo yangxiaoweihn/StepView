@@ -18,6 +18,7 @@
             android:layout_height="match_parent"
             android:layout_weight="2">
             <TextView
+                android:visibility="gone"
                 android:id="@+id/tv_minus"
                 android:layout_centerInParent="true"
                 android:layout_width="wrap_content"
@@ -39,6 +40,7 @@
             android:layout_height="match_parent"
             android:layout_weight="2">
             <TextView
+                android:visibility="gone"
                 android:id="@+id/tv_plus"
                 android:layout_centerInParent="true"
                 android:layout_width="wrap_content"

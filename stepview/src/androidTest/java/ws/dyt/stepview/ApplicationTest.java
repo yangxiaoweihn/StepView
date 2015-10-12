@@ -1,4 +1,4 @@
-package ws.dyt.test;
+package ws.dyt.stepview;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;

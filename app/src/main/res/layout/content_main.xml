@@ -14,7 +14,7 @@
     tools:showIn="@layout/activity_main">
 
 
-    <ws.dyt.test.StepTextView
+    <ws.dyt.stepview.view.StepTextView
         android:id="@+id/stepTextView"
         android:layout_width="150dp"
         android:layout_height="40dp"
@@ -65,4 +65,22 @@
         android:layout_height="wrap_content"
         android:textSize="14sp"/>
 
+    <ws.dyt.stepview.view.StepImageView
+        android:layout_marginTop="10dp"
+        android:layout_width="150dp"
+        android:layout_height="40dp"
+        app:step_minus_background_selector="@drawable/step_minus_background_selector"
+        app:step_plus_background_selector="@drawable/step_plus_background_selector"
+        app:step_minus_drawable_selector="@drawable/step_minus_image_selector"
+        app:step_plus_drawable_selector="@drawable/step_plus_image_selector"
+        app:input_min="5"
+        app:input_max="10"
+        />
+
+    <ImageView
+        android:layout_marginTop="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/step_plus_image_selector"
+        />
 </LinearLayout>

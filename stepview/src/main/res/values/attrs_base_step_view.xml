@@ -1,10 +1,5 @@
 <resources>
     <declare-styleable name="BaseStepView">
-        <!-- 正 负号控件padding -->
-        <attr name="step_padding_left" format="dimension" />
-        <attr name="step_padding_right" format="dimension" />
-        <attr name="step_padding_top" format="dimension" />
-        <attr name="step_padding_bottom" format="dimension" />
         <!-- 正 负号控件背景色选择器 -->
         <attr name="step_minus_background_selector" format="reference" />
         <attr name="step_plus_background_selector" format="reference" />
@@ -14,10 +9,6 @@
 
         <!-- 输入框文本配置属性 -->
         <attr name="input_is_input" format="boolean" /><!-- 输入框是否直接接受输入 -->
-        <attr name="input_padding_left" format="dimension" />
-        <attr name="input_padding_right" format="dimension" />
-        <attr name="input_padding_top" format="dimension" />
-        <attr name="input_padding_bottom" format="dimension" />
         <attr name="input_font_size" format="dimension" />
         <!-- 输入值域设置 -->
         <attr name="input_min" format="integer" />
@@ -37,6 +28,8 @@
     </declare-styleable>
 
     <declare-styleable name="StepImageView">
-
+        <!-- 正 负控件图片选择器 -->
+        <attr name="step_minus_drawable_selector" format="reference" />
+        <attr name="step_plus_drawable_selector" format="reference" />
     </declare-styleable>
 </resources>

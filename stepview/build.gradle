@@ -19,7 +19,7 @@ android {
 }
 
 ext{
-    publishedGroupId = "ws.dyt.test"
+    publishedGroupId = "ws.dyt.stepview"
 
 }
 

@@ -1,15 +1,18 @@
-package ws.dyt.test;
+package ws.dyt.stepview.view;
 
 import android.content.Context;
 import android.content.res.ColorStateList;
 import android.content.res.TypedArray;
 import android.util.AttributeSet;
+import android.view.LayoutInflater;
+import android.view.View;
 import android.widget.TextView;
+import ws.dyt.stepview.R;
 
 /**
  * Created by yangxiaowei on 15/10/9.
  */
-public class StepTextView extends BaseStepViewV2{
+public class StepTextView extends BaseStepView {
     protected TextView mTvMinus;
     protected TextView mTvPlus;
 
@@ -47,8 +50,8 @@ public class StepTextView extends BaseStepViewV2{
     }
 
     private void initView(){
-        mTvMinus = (TextView) findViewById(R.id.tv_minus);
-        mTvPlus = (TextView) findViewById(R.id.tv_plus);
+//        mTvMinus = (TextView) findViewById(R.id.tv_minus);
+//        mTvPlus = (TextView) findViewById(R.id.tv_plus);
 
         mTvMinus.setTextSize(stepFontSize);
         mTvPlus.setTextSize(stepFontSize);
@@ -58,5 +61,19 @@ public class StepTextView extends BaseStepViewV2{
 
         mTvPlus.setTextColor(stepPlusFontSelector);
         mTvMinus.setTextColor(stepMinusFontSelector);
+    }
+
+    @Override
+    public View setStepMinusView() {
+        LayoutInflater layoutInflater = LayoutInflater.from(getContext());
+        mTvMinus = (TextView) layoutInflater.inflate(R.layout.step_textview, null, false);
+        return mTvMinus;
+    }
+
+    @Override
+    public View setStepPlusView() {
+        LayoutInflater layoutInflater = LayoutInflater.from(getContext());
+        mTvPlus = (TextView) layoutInflater.inflate(R.layout.step_textview, null, false);
+        return mTvPlus;
     }
 }

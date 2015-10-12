@@ -2,16 +2,13 @@ package ws.dyt.quantityview;
 
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.widget.TextView;
 
-import ws.dyt.test.BaseStepViewV2;
-import ws.dyt.test.StepTextView;
+import ws.dyt.stepview.view.BaseStepView;
+import ws.dyt.stepview.view.StepTextView;
 
 public class MainActivity extends AppCompatActivity {
     StepTextView stepTextView;
@@ -24,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         final TextView tvShow = (TextView) findViewById(R.id.tv_show);
         stepTextView = (StepTextView) findViewById(R.id.stepTextView);
-        stepTextView.setOnStepChangeListener(new BaseStepViewV2.IOnStepChangeListener() {
+        stepTextView.setOnStepChangeListener(new BaseStepView.IOnStepChangeListener() {
             @Override
             public void onStepChanged(int step, int min, int max) {
                 tvShow.setText(""+step);
@@ -40,7 +37,6 @@ public class MainActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                stepTextView.setStepPaddingRight(5);
 //                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
 //                        .setAction("Action", null).show();
             }

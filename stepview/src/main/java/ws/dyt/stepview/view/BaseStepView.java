@@ -1,4 +1,4 @@
-package ws.dyt.test;
+package ws.dyt.stepview.view;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -6,17 +6,20 @@ import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
-import android.widget.TextView;
+import ws.dyt.stepview.R;
+
+import ws.dyt.stepview.util.DisplayUtil;
 
 /**
+ * Created by yangxiaowei on 15/10/9
  */
-public class BaseStepViewV2 extends LinearLayout {
+public abstract class BaseStepView extends LinearLayout {
     private static final int DEFAULT_FONT_SIZE = 14;
     protected int defaultFontSize = -1;
     protected RelativeLayout mVgMinus;
@@ -36,17 +39,17 @@ public class BaseStepViewV2 extends LinearLayout {
     }
     private DataHolder dataHolder = new DataHolder();
 
-    public BaseStepViewV2(Context context) {
+    public BaseStepView(Context context) {
         super(context);
         init(context, null, 0);
     }
 
-    public BaseStepViewV2(Context context, AttributeSet attrs) {
+    public BaseStepView(Context context, AttributeSet attrs) {
         super(context, attrs);
         init(context, attrs, 0);
     }
 
-    public BaseStepViewV2(Context context, AttributeSet attrs, int defStyle) {
+    public BaseStepView(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
         init(context, attrs, defStyle);
     }
@@ -59,7 +62,7 @@ public class BaseStepViewV2 extends LinearLayout {
                 LayoutParams.MATCH_PARENT,
                 LayoutParams.MATCH_PARENT
         );
-        this.addView(LayoutInflater.from(context).inflate(R.layout.sample_base_step_view, null, false), lp);
+        this.addView(LayoutInflater.from(context).inflate(R.layout.base_step_view, null, false), lp);
         // Load attributes
         final TypedArray a = getContext().obtainStyledAttributes(attrs, R.styleable.BaseStepView, defStyle, 0);
 
@@ -78,12 +81,18 @@ public class BaseStepViewV2 extends LinearLayout {
         this.initView();
     }
 
-    public void setStepPaddingRight(float paddingSp){
-    }
     private void initView(){
         mVgMinus = (RelativeLayout) findViewById(R.id.vg_minus);
         mVgPlus = (RelativeLayout) findViewById(R.id.vg_plus);
         mEtInput = (EditText) findViewById(R.id.et_input);
+
+        RelativeLayout.LayoutParams lp = new RelativeLayout.LayoutParams(
+                RelativeLayout.LayoutParams.WRAP_CONTENT,
+                RelativeLayout.LayoutParams.WRAP_CONTENT
+                );
+        lp.addRule(RelativeLayout.CENTER_IN_PARENT);
+        mVgMinus.addView(setStepMinusView(), lp);
+        mVgPlus.addView(setStepPlusView(), lp);
 
         mVgMinus.setLayoutParams(new LinearLayout.LayoutParams(
                 LayoutParams.WRAP_CONTENT,
@@ -127,28 +136,28 @@ public class BaseStepViewV2 extends LinearLayout {
 
     private void flushStepViewStatus(boolean is){
         if (!is){
-            mVgMinus.setEnabled(false);
-            mVgPlus.setEnabled(false);
+            enableView(mVgMinus, false);
+            enableView(mVgPlus, false);
             return;
         }
         if (dataHolder.cur > dataHolder.min && dataHolder.cur < dataHolder.max){
             if (!mVgMinus.isEnabled()){
-                mVgMinus.setEnabled(true);
+                enableView(mVgMinus, true);
                 mVgMinus.setOnClickListener(onClickListener);
             }
             if (!mVgPlus.isEnabled()){
-                mVgPlus.setEnabled(true);
+                enableView(mVgPlus, true);
                 mVgPlus.setOnClickListener(onClickListener);
             }
         }else if (dataHolder.cur == dataHolder.min){
-            mVgPlus.setEnabled(true);
-            mVgMinus.setEnabled(false);
+            enableView(mVgPlus, true);
+            enableView(mVgMinus, false);
         }else if (dataHolder.cur == dataHolder.max){
-            mVgMinus.setEnabled(true);
-            mVgPlus.setEnabled(false);
+            enableView(mVgMinus, true);
+            enableView(mVgPlus, false);
         }else {
-            mVgMinus.setEnabled(false);
-            mVgPlus.setEnabled(false);
+            enableView(mVgMinus, false);
+            enableView(mVgPlus, false);
         }
     }
 
@@ -180,6 +189,35 @@ public class BaseStepViewV2 extends LinearLayout {
             flushStepViewStatus(true);
         }
     };
+
+    /**
+     *
+     * @return
+     */
+    public abstract View setStepMinusView();
+    public abstract View setStepPlusView();
+
+    private void enableView(ViewGroup parent, boolean enable){
+        if (null == parent){
+            return;
+        }
+        parent.setEnabled(enable);
+        enableAllChildViews(parent, enable);
+    }
+
+    private void enableAllChildViews(ViewGroup parent, boolean enable){
+        if (null == parent){
+            return;
+        }
+        int cc = parent.getChildCount();
+        if (0 == cc){
+            return;
+        }
+        for (int i = 0; i < cc; i++){
+            View v = parent.getChildAt(i);
+            v.setEnabled(enable);
+        }
+    }
 
     private boolean isStepReport = false;
     private IOnStepChangeListener onStepChangeListener;
