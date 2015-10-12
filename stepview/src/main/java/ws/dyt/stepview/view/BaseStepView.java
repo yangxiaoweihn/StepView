@@ -234,16 +234,19 @@ public abstract class BaseStepView extends LinearLayout {
     }
 
     /**
-     *
+     *数据变动监听器
      */
     public interface IOnStepChangeListener{
         /**
-         * @param step
-         * @param min
-         * @param max
+         * @param step  变动数据
+         * @param min   设置的最小值
+         * @param max   设置的最大值
          */
         void onStepChanged(int step, int min, int max);
 
+        /**
+         *数据变动异常时回调
+         */
         void onError();
     }
 
