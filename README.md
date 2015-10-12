@@ -66,16 +66,16 @@
     <attr name="step_minus_text" format="string" />
     <attr name="step_plus_text" format="string" />
 ```
-- ｀StepImageView｀（图标）控件特有属性
+- **StepImageView**（图标）控件特有属性
 ```xml
     <!-- 递增 递减控件图片选择器 -->
     <attr name="step_minus_drawable_selector" format="reference" />
     <attr name="step_plus_drawable_selector" format="reference" />
 ```
 
-- `Selector`类属性使用方法
+- __Selector__类属性使用方法
     上述属性中，凡是`xxx_selector`结尾表示的属性，都需要遵循下列写法才会起到相应作用。
-    以下selector文件存在于res/drawable目录中。
+    <p>以下selector文件存在于res/drawable目录中。</p>
 ```xml
     <?xml version="1.0" encoding="utf-8"?>
     <selector xmlns:android="http://schemas.android.com/apk/res/android">
