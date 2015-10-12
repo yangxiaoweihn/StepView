@@ -1,4 +1,4 @@
-## StepView
+## 控件简介
 一个提供整数递增、递减的简易控件
 ## 添加依赖
 ```
@@ -39,7 +39,7 @@
         />
 ```
 ###   属性支持
-####    共用属性
+-    共用属性
 ```xml
     <!-- 递增 递减控件背景色选择器 -->
     <attr name="step_minus_background_selector" format="reference" />
@@ -55,7 +55,7 @@
     <attr name="input_min" format="integer" />
     <attr name="input_max" format="integer" />
 ```
-#### StepTextView（文本）控件特有属性
+- ｀StepTextView｀（文本）控件特有属性
 ```xml
     <!-- 递增 递减控件文本配置属性 -->
     <attr name="step_font_size" format="dimension" />
@@ -66,9 +66,25 @@
     <attr name="step_minus_text" format="string" />
     <attr name="step_plus_text" format="string" />
 ```
-#### StepImageView（图标）控件特有属性
+- ｀StepImageView｀（图标）控件特有属性
 ```xml
     <!-- 递增 递减控件图片选择器 -->
     <attr name="step_minus_drawable_selector" format="reference" />
     <attr name="step_plus_drawable_selector" format="reference" />
+```
+
+- `Selector`类属性使用方法
+    上述属性中，凡是`xxx_selector`结尾表示的属性，都需要遵循下列写法才会起到相应作用。
+    以下selector文件存在于res/drawable目录中。
+```xml
+    <?xml version="1.0" encoding="utf-8"?>
+    <selector xmlns:android="http://schemas.android.com/apk/res/android">
+        <!-- 以下item节点中，一般情况下drawable属性都可用使用color属性替代 -->
+        <!-- 控件可用、按下状态 -->
+        <item android:state_pressed="true" android:state_enabled="true" android:drawable="@color/colorAccent" />
+        <!-- 控件可用、正常状态 -->
+        <item android:state_pressed="false" android:state_enabled="true" android:drawable="@color/colorPrimary" />
+        <!-- 控件不可用状态 -->
+        <item android:state_enabled="false" android:drawable="@color/colorGray" />
+    </selector>
 ```
