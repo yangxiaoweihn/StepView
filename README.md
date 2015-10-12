@@ -55,7 +55,7 @@
     <attr name="input_min" format="integer" />
     <attr name="input_max" format="integer" />
 ```
-- ｀StepTextView｀（文本）控件特有属性
+- *StepTextView*（文本）控件特有属性
 ```xml
     <!-- 递增 递减控件文本配置属性 -->
     <attr name="step_font_size" format="dimension" />
@@ -74,8 +74,10 @@
 ```
 
 - __Selector__类属性使用方法
-    上述属性中，凡是`xxx_selector`结尾表示的属性，都需要遵循下列写法才会起到相应作用。
-    <p>以下selector文件存在于res/drawable目录中。</p>
+    <p>
+        上述属性中，凡是`xxx_selector`结尾表示的属性，都需要遵循下列写法才会起到相应作用。
+        以下selector文件存在于res/drawable目录中。
+    </p>
 ```xml
     <?xml version="1.0" encoding="utf-8"?>
     <selector xmlns:android="http://schemas.android.com/apk/res/android">
