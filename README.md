@@ -75,7 +75,7 @@
 
 - `Selector`类属性使用方法
     <p>
-        上述属性中，凡是`xxx_selector`结尾表示的属性，都需要遵循下列写法才会起到相应作用。
+        上述属性中，凡是`xxx_selector`结尾表示的属性，都需要遵循下列写法才会起到相应作用。<br/>
         以下selector文件存在于res/drawable目录中。
     </p>
 ```xml
@@ -93,16 +93,6 @@
 
 ### 添加监听器
     <p>控件通过属性`input_min`、`input_max`设置值域范围后，可以通过设置以下监听器来监听数据的变化，设置方式为
-     StepTextView stepTextView = (StepTextView) findViewById(R.id.stepTextView);
-     stepTextView.setOnStepChangeListener(new StepTextView.IOnStepChangeListener() {
-         @Override
-         public void onStepChanged(int step, int min, int max) {
-         }
-
-         @Override
-         public void onError() {
-         }
-     });
      </p>
 ```java
     /**
