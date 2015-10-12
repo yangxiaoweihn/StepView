@@ -66,7 +66,7 @@
     <attr name="step_minus_text" format="string" />
     <attr name="step_plus_text" format="string" />
 ```
-- **StepImageView**（图标）控件特有属性
+- *StepImageView*（图标）控件特有属性
 ```xml
     <!-- 递增 递减控件图片选择器 -->
     <attr name="step_minus_drawable_selector" format="reference" />
