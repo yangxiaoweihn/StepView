@@ -92,19 +92,9 @@
 ```
 
 - 添加监听器
-    <pre>
-    控件通过属性`input_min`、`input_max`设置值域范围后，可以通过设置以下监听器来监听数据的变化，设置方式为
-    StepTextView stepTextView = (StepTextView) findViewById(R.id.stepTextView);
-    stepTextView.setOnStepChangeListener(new StepTextView.IOnStepChangeListener() {
-        @Override
-        public void onStepChanged(int step, int min, int max) {
-        }
-    
-        @Override
-        public void onError() {
-        }
-    });
-     </pre>
+    <p>
+        控件通过属性`input_min`、`input_max`设置值域范围后，可以通过设置以下监听器来监听数据的变化。 
+    </p>
 ```java
     /**
      *数据变动监听器
@@ -122,4 +112,17 @@
          */
         void onError();
     }
+```
+设置方式为
+```java
+    StepTextView stepTextView = (StepTextView) findViewById(R.id.stepTextView);
+    stepTextView.setOnStepChangeListener(new StepTextView.IOnStepChangeListener() {
+        @Override
+        public void onStepChanged(int step, int min, int max) {
+        }
+    
+        @Override
+        public void onError() {
+        }
+    });
 ```
