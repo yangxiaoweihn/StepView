@@ -50,9 +50,6 @@ public class StepTextView extends BaseStepView {
     }
 
     private void initView(){
-//        mTvMinus = (TextView) findViewById(R.id.tv_minus);
-//        mTvPlus = (TextView) findViewById(R.id.tv_plus);
-
         mTvMinus.setTextSize(stepFontSize);
         mTvPlus.setTextSize(stepFontSize);
 
