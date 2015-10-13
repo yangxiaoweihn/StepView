@@ -2,6 +2,7 @@ package ws.dyt.stepview.view;
 
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.graphics.Color;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
@@ -12,8 +13,8 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
-import ws.dyt.stepview.R;
 
+import ws.dyt.stepview.R;
 import ws.dyt.stepview.util.DisplayUtil;
 
 /**
@@ -31,6 +32,7 @@ public abstract class BaseStepView extends LinearLayout {
 
     private float inputFontSize;
     private boolean inputIsInput = true;
+    private int inputColor;
 
     static class DataHolder{
         public int min = 0;
@@ -68,14 +70,17 @@ public abstract class BaseStepView extends LinearLayout {
 
         stepMinusWeight = a.getFloat(R.styleable.BaseStepView_step_minus_weight, 1.f);
         stepPlusWeight = a.getFloat(R.styleable.BaseStepView_step_plus_weight, 1.f);
-        stepMinusBackgroundSelector = a.getResourceId(R.styleable.BaseStepView_step_minus_background_selector, 0);
-        stepPlusBackgroundSelector = a.getResourceId(R.styleable.BaseStepView_step_plus_background_selector, 0);
+        stepMinusBackgroundSelector = a.getResourceId(R.styleable.BaseStepView_step_minus_background_selector, R.drawable.step_background_selector);
+        stepPlusBackgroundSelector = a.getResourceId(R.styleable.BaseStepView_step_plus_background_selector, R.drawable.step_background_selector);
 
         inputIsInput = a.getBoolean(R.styleable.BaseStepView_input_is_input, true);
         inputFontSize = px2sp(a.getDimension(R.styleable.BaseStepView_input_font_size, defaultFontSize));
+        inputColor = a.getColor(R.styleable.BaseStepView_input_font_color, Color.argb(80, 0, 0, 0));
 
         dataHolder.min = a.getInt(R.styleable.BaseStepView_input_min, 0);
         dataHolder.max = a.getInt(R.styleable.BaseStepView_input_max, 0);
+        dataHolder.cur = a.getInt(R.styleable.BaseStepView_input_cur, 0);
+
         a.recycle();
 
         this.initView();
@@ -94,32 +99,41 @@ public abstract class BaseStepView extends LinearLayout {
         mVgMinus.addView(setStepMinusView(), lp);
         mVgPlus.addView(setStepPlusView(), lp);
 
-        mVgMinus.setLayoutParams(new LinearLayout.LayoutParams(
-                LayoutParams.WRAP_CONTENT,
-                LayoutParams.MATCH_PARENT,
-                stepMinusWeight));
-        mVgMinus.setBackgroundResource(stepMinusBackgroundSelector);
 
-        mVgPlus.setLayoutParams(new LinearLayout.LayoutParams(
-                LayoutParams.WRAP_CONTENT,
-                LayoutParams.MATCH_PARENT,
-                stepPlusWeight));
-        mVgPlus.setBackgroundResource(stepPlusBackgroundSelector);
-
-        mEtInput.setTextSize(inputFontSize);
-
-        if (!inputIsInput){
-            mEtInput.setFocusable(false);
-            mEtInput.setEnabled(false);
-        }else {
-            mEtInput.addTextChangedListener(tw);
-        }
-
-        dataHolder.cur = dataHolder.min;
-        mEtInput.setText(String.valueOf(dataHolder.cur));
-
+        mEtInput.addTextChangedListener(tw);
         mVgMinus.setOnClickListener(onClickListener);
         mVgPlus.setOnClickListener(onClickListener);
+
+        this.flushViewParams();
+    }
+
+    private void flushViewParams(){
+//        mVgMinus.setLayoutParams(new LinearLayout.LayoutParams(
+//                LayoutParams.WRAP_CONTENT,
+//                LayoutParams.MATCH_PARENT,
+//                stepMinusWeight));
+//        mVgMinus.setBackgroundResource(stepMinusBackgroundSelector);
+//
+//        mVgPlus.setLayoutParams(new LinearLayout.LayoutParams(
+//                LayoutParams.WRAP_CONTENT,
+//                LayoutParams.MATCH_PARENT,
+//                stepPlusWeight));
+//        mVgPlus.setBackgroundResource(stepPlusBackgroundSelector);
+//
+//        mEtInput.setTextSize(inputFontSize);
+//        mEtInput.setTextColor(inputColor);
+//
+//        mEtInput.setFocusable(inputIsInput);
+//        mEtInput.setEnabled(inputIsInput);
+
+        this.setStepMinusWeight(stepMinusWeight);
+        this.setStepMinusBackgroundSelector(stepMinusBackgroundSelector);
+        this.setStepPlusWeight(stepPlusWeight);
+        this.setStepPlusBackgroundSelector(stepPlusBackgroundSelector);
+        this.setInputFontSize(inputFontSize);
+        this.setInputColor(inputColor);
+        this.setInputIsInput(inputIsInput);
+        mEtInput.setText(String.valueOf(dataHolder.cur));
     }
 
     private OnClickListener onClickListener = new OnClickListener() {
@@ -231,6 +245,58 @@ public abstract class BaseStepView extends LinearLayout {
                 onStepChangeListener.onError();
             }
         }
+    }
+
+    public void setStepMinusWeight(float stepMinusWeight) {
+        this.stepMinusWeight = stepMinusWeight;
+        mVgMinus.setLayoutParams(new LinearLayout.LayoutParams(
+                LayoutParams.WRAP_CONTENT,
+                LayoutParams.MATCH_PARENT,
+                stepMinusWeight));
+    }
+
+    public void setStepPlusWeight(float stepPlusWeight) {
+        this.stepPlusWeight = stepPlusWeight;
+        mVgPlus.setLayoutParams(new LinearLayout.LayoutParams(
+                LayoutParams.WRAP_CONTENT,
+                LayoutParams.MATCH_PARENT,
+                stepPlusWeight));
+    }
+
+    public void setStepMinusBackgroundSelector(int stepMinusBackgroundSelector) {
+        this.stepMinusBackgroundSelector = stepMinusBackgroundSelector;
+        mVgMinus.setBackgroundResource(stepMinusBackgroundSelector);
+    }
+
+    public void setStepPlusBackgroundSelector(int stepPlusBackgroundSelector) {
+        this.stepPlusBackgroundSelector = stepPlusBackgroundSelector;
+        mVgPlus.setBackgroundResource(stepPlusBackgroundSelector);
+    }
+
+    public void setInputFontSize(float inputFontSize) {
+        this.inputFontSize = inputFontSize;
+        mEtInput.setTextSize(inputFontSize);
+    }
+
+    public void setInputIsInput(boolean inputIsInput) {
+        this.inputIsInput = inputIsInput;
+        mEtInput.setFocusable(inputIsInput);
+        mEtInput.setEnabled(inputIsInput);
+    }
+
+    public void setInputColor(int inputColor) {
+        this.inputColor = inputColor;
+        mEtInput.setTextColor(inputColor);
+    }
+
+    public void setInputMin(int min){
+        this.dataHolder.min = min;
+        this.flushStepViewStatus(true);
+    }
+
+    public void setInputMax(int max){
+        this.dataHolder.max = max;
+        this.flushStepViewStatus(true);
     }
 
     /**

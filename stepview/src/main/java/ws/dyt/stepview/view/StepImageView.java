@@ -35,9 +35,9 @@ public class StepImageView extends BaseStepView {
 
     private void init(Context context, AttributeSet attrs, int defStyle){
         final TypedArray a = getContext().obtainStyledAttributes(attrs, R.styleable.StepImageView, defStyle, 0);
-        stepMinusDrawableSelector = a.getResourceId(R.styleable.StepImageView_step_minus_drawable_selector, 0);
+        stepMinusDrawableSelector = a.getResourceId(R.styleable.StepImageView_step_minus_drawable_selector, R.drawable.step_minus_image_selector);
 
-        stepPlusDrawableSelector = a.getResourceId(R.styleable.StepImageView_step_plus_drawable_selector, 0);
+        stepPlusDrawableSelector = a.getResourceId(R.styleable.StepImageView_step_plus_drawable_selector, R.drawable.step_plus_image_selector);
 
         a.recycle();
 
@@ -45,8 +45,8 @@ public class StepImageView extends BaseStepView {
     }
 
     private void initView(){
-        mIvMinus.setImageResource(stepMinusDrawableSelector);
-        mIvPlus.setImageResource(stepPlusDrawableSelector);
+        this.setStepMinusDrawableSelector(stepMinusDrawableSelector);
+        this.setStepPlusDrawableSelector(stepPlusDrawableSelector);
     }
 
     @Override
@@ -61,5 +61,15 @@ public class StepImageView extends BaseStepView {
         LayoutInflater layoutInflater = LayoutInflater.from(getContext());
         mIvPlus = (ImageView) layoutInflater.inflate(R.layout.step_imageview, null, false);
         return mIvPlus;
+    }
+
+    public void setStepMinusDrawableSelector(int stepMinusDrawableSelector) {
+        this.stepMinusDrawableSelector = stepMinusDrawableSelector;
+        mIvMinus.setImageResource(stepMinusDrawableSelector);
+    }
+
+    public void setStepPlusDrawableSelector(int stepPlusDrawableSelector) {
+        this.stepPlusDrawableSelector = stepPlusDrawableSelector;
+        mIvPlus.setImageResource(stepPlusDrawableSelector);
     }
 }

@@ -3,4 +3,8 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+    <color name="colorAccent1">#FF88FF</color>
+    <color name="colorAccent2">#0099aa</color>
+    <color name="colorGray">@android:color/darker_gray</color>
+    <color name="colorWhite">#fff</color>
 </resources>

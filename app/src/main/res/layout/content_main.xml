@@ -13,49 +13,6 @@
     tools:context=".MainActivity"
     tools:showIn="@layout/activity_main">
 
-
-    <ws.dyt.stepview.view.StepTextView
-        android:id="@+id/stepTextView"
-        android:layout_width="150dp"
-        android:layout_height="40dp"
-        android:background="#a05ff4"
-        app:step_font_size="18sp"
-        app:step_minus_background_selector="@drawable/step_minus_background_selector"
-        app:step_minus_font_selector="@drawable/step_minus_font_selector"
-        app:step_minus_text="-"
-        app:step_plus_background_selector="@drawable/step_plus_background_selector"
-        app:step_plus_font_selector="@drawable/step_plus_font_selector"
-        app:step_plus_text="+"
-        app:step_padding_left="10dp"
-        app:step_padding_top="10dp"
-        app:step_padding_right="10dp"
-        app:step_minus_weight="1"
-        app:step_plus_weight="1"
-        app:input_min="5"
-        app:input_max="10"
-        app:input_is_input="true"
-        />
-
-    <TextView
-        android:background="#898765"
-        android:paddingLeft="10dp"
-        android:layout_width="wrap_content"
-        android:layout_height="50dp"
-        android:text="+"
-        android:paddingRight="15dp"
-        android:textSize="14sp"/>
-    <TextView
-        android:background="#898765"
-        android:paddingLeft="10dp"
-        android:paddingTop="10dp"
-        android:paddingBottom="10dp"
-        android:layout_marginTop="20dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="+"
-        android:paddingRight="15dp"
-        android:textSize="14sp"/>
-
     <TextView
         android:id="@+id/tv_show"
         android:background="#898765"
@@ -63,10 +20,34 @@
         android:layout_marginTop="20dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
         android:textSize="14sp"/>
 
+    <ws.dyt.stepview.view.StepTextView
+        android:layout_marginTop="20dp"
+        android:id="@+id/stepTextView"
+        android:layout_width="150dp"
+        android:layout_height="40dp"
+        app:step_font_size="18sp"
+        app:step_minus_background_selector="@drawable/step_minus_background_selector"
+        app:step_minus_font_selector="@drawable/step_minus_font_selector"
+        app:step_minus_text="-"
+        app:step_plus_background_selector="@drawable/step_plus_background_selector"
+        app:step_plus_font_selector="@drawable/step_plus_font_selector"
+        app:step_plus_text="+"
+        app:step_minus_weight="1"
+        app:step_plus_weight="1"
+        app:input_min="4"
+        app:input_max="9"
+        app:input_cur="5"
+        app:input_is_input="true"
+        />
+
+
+
     <ws.dyt.stepview.view.StepImageView
-        android:layout_marginTop="10dp"
+        android:id="@+id/stepImageView"
+        android:layout_marginTop="20dp"
         android:layout_width="150dp"
         android:layout_height="40dp"
         app:step_minus_background_selector="@drawable/step_minus_background_selector"
@@ -75,12 +56,46 @@
         app:step_plus_drawable_selector="@drawable/step_plus_image_selector"
         app:input_min="5"
         app:input_max="10"
+        app:input_cur="7"
+        app:input_font_color="#aabb00"
         />
 
-    <ImageView
-        android:layout_marginTop="10dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/step_plus_image_selector"
+    <ws.dyt.stepview.view.StepTextView
+        android:layout_marginTop="20dp"
+        android:id="@+id/aa"
+        android:layout_width="250dp"
+        android:layout_height="50dp"
+        app:step_font_size="22sp"
+        app:step_minus_background_selector="@drawable/step_cus_background_selector"
+        app:step_minus_font_selector="@drawable/step_cus_font_selector"
+        app:step_minus_text="-"
+        app:step_plus_background_selector="@drawable/step_cus_background_selector"
+        app:step_plus_font_selector="@drawable/step_cus_font_selector"
+        app:step_plus_text="+"
+        app:step_minus_weight="1.2"
+        app:step_plus_weight="1.2"
+        app:input_min="0"
+        app:input_max="10"
+        app:input_cur="5"
+        app:input_is_input="false"
+        app:input_font_color="@color/colorPrimary"
         />
+
+    <ws.dyt.stepview.view.StepImageView
+        android:id="@+id/stepImageViewCus1"
+        android:background="#888888"
+        android:layout_marginTop="20dp"
+        android:layout_width="120dp"
+        android:layout_height="40dp"
+        app:step_minus_background_selector="@drawable/step_cus_background_selector_1"
+        app:step_plus_background_selector="@drawable/step_cus_background_selector_1"
+        app:step_minus_drawable_selector="@drawable/step_minus_image_selector"
+        app:step_plus_drawable_selector="@drawable/step_plus_image_selector"
+        app:input_min="0"
+        app:input_max="20"
+        app:input_cur="10"
+        app:step_minus_weight="1"
+        app:step_plus_weight="1"
+        />
+
 </LinearLayout>

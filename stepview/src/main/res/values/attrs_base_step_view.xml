@@ -10,9 +10,11 @@
         <!-- 输入框文本配置属性 -->
         <attr name="input_is_input" format="boolean" /><!-- 输入框是否直接接受输入 -->
         <attr name="input_font_size" format="dimension" />
+        <attr name="input_font_color" format="color|reference" />
         <!-- 输入值域设置 -->
         <attr name="input_min" format="integer" />
         <attr name="input_max" format="integer" />
+        <attr name="input_cur" format="integer" />
     </declare-styleable>
 
     <declare-styleable name="StepTextView">

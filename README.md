@@ -51,11 +51,14 @@
     <!-- 输入框文本配置属性 -->
     <attr name="input_is_input" format="boolean" /><!-- 输入框是否直接接受输入 -->
     <attr name="input_font_size" format="dimension" />
+    <attr name="input_font_color" format="color|reference" />
+    
     <!-- 输入值域设置 -->
     <attr name="input_min" format="integer" />
     <attr name="input_max" format="integer" />
+    <attr name="input_cur" format="integer" />
 ```
-- *StepTextView*（文本）控件特有属性
+- `StepTextView`（文本）控件特有属性
 ```xml
     <!-- 递增 递减控件文本配置属性 -->
     <attr name="step_font_size" format="dimension" />
@@ -66,7 +69,7 @@
     <attr name="step_minus_text" format="string" />
     <attr name="step_plus_text" format="string" />
 ```
-- *StepImageView*（图标）控件特有属性
+- `StepImageView`（图标）控件特有属性
 ```xml
     <!-- 递增 递减控件图片选择器 -->
     <attr name="step_minus_drawable_selector" format="reference" />
@@ -125,4 +128,20 @@
         public void onError() {
         }
     });
+```
+## License
+```xml
+    Copyright 2015 Jack Tony
+    
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+    
+        http://www.apache.org/licenses/LICENSE-2.0
+    
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
 ```
