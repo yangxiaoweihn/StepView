@@ -43,8 +43,11 @@ ext{
     allLicenses = ["Apache-2.0"]
 
 }
-    apply from: 'https://raw.githubusercontent.com/yangxiaoweihn/StepView/master/stepview/bintray.gradle'
-    apply from: 'https://github.com/yangxiaoweihn/StepView/blob/master/stepview/install.gradle'
+//    apply from: 'https://raw.githubusercontent.com/yangxiaoweihn/StepView/master/stepview/bintray.gradle'
+//    apply from: 'https://raw.githubusercontent.com/yangxiaoweihn/StepView/master/stepview/install.gradle'
+
+    apply from: 'https://raw.githubusercontent.com/yangxiaoweihn/StepView/master/bintray.gradle'
+    apply from: 'https://raw.githubusercontent.com/yangxiaoweihn/StepView/master/install.gradle'
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
