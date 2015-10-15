@@ -1,5 +1,7 @@
 apply plugin: 'com.android.library'
-
+def getVersionName(){
+    return "0.1"
+}
 android {
     compileSdkVersion 23
     buildToolsVersion "23.0.1"
@@ -8,7 +10,8 @@ android {
         minSdkVersion 15
         targetSdkVersion 23
         versionCode 1
-        versionName "1.0"
+//        versionName "${getVersionName()}"
+        versionName "0.1"
     }
     buildTypes {
         release {
@@ -19,8 +22,28 @@ android {
 }
 
 ext{
-    publishedGroupId = "ws.dyt.stepview"
+    bintrayRepo = 'maven'
+    bintrayName = 'stepview'
 
+    publishedGroupId = "ws.dyt.stepview"
+    libraryName = 'StepView'
+    artifact = 'stepview'
+
+    libraryDescription = "A View on Android"
+    siteUrl = "https://github.com/yangxiaoweihn/StepView"
+    gitUrl = "https://github.com/yangxiaoweihn/StepView.git"
+
+    libraryVersion = "${android.defaultConfig.versionName}"
+    developerId = 'yangxiaoweihn'
+    developerName = 'yangxiaowei'
+    developerEmail = 'hn_yangxiaowei@163.com'
+
+    licenseName = 'The Apache Software License, Version 2.0'
+    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+    allLicenses = ["Apache-2.0"]
+
+//    apply from: 'install.gradle'
+//    apply from: 'bintray.gradle'
 }
 
 dependencies {

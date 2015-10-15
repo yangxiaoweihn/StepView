@@ -38,21 +38,21 @@ public class MainActivity extends AppCompatActivity {
         ((BaseStepView) findViewById(R.id.stepImageView)).setOnStepChangeListener(ll);
         ((BaseStepView) findViewById(R.id.stepImageViewCus1)).setOnStepChangeListener(ll);
 
-        final StepTextView stepTextView = ((StepTextView) findViewById(R.id.stepTextView3));
-        stepTextView.setStepPlusText("加");
-        stepTextView.setStepMinusText("减");
-        stepTextView.setOnStepChangeListener(new BaseStepView.IOnStepChangeListener() {
-            @Override
-            public void onStepChanged(int step, int min, int max) {
-                int c = new Random().nextInt(255);
-                stepTextView.setInputColor(Color.rgb(Color.red(c), Color.green(c), Color.blue(c)));
-            }
-
-            @Override
-            public void onError() {
-
-            }
-        });
+//        final StepTextView stepTextView = ((StepTextView) findViewById(R.id.stepTextView3));
+//        stepTextView.setStepPlusText("加");
+//        stepTextView.setStepMinusText("减");
+//        stepTextView.setOnStepChangeListener(new BaseStepView.IOnStepChangeListener() {
+//            @Override
+//            public void onStepChanged(int step, int min, int max) {
+//                int c = new Random().nextInt(255);
+//                stepTextView.setInputColor(Color.rgb(Color.red(c), Color.green(c), Color.blue(c)));
+//            }
+//
+//            @Override
+//            public void onError() {
+//
+//            }
+//        });
 
 
     }
