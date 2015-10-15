@@ -148,8 +148,8 @@ public abstract class BaseStepView extends LinearLayout {
         }
     };
 
-    private void flushStepViewStatus(boolean is){
-        if (!is){
+    private void flushStepViewStatus(boolean isStepEnable){
+        if (!isStepEnable){
             enableView(mVgMinus, false);
             enableView(mVgPlus, false);
             return;
@@ -296,6 +296,11 @@ public abstract class BaseStepView extends LinearLayout {
 
     public void setInputMax(int max){
         this.dataHolder.max = max;
+        this.flushStepViewStatus(true);
+    }
+
+    public void setInputCurrentValue(int currentValue){
+        this.dataHolder.cur = currentValue;
         this.flushStepViewStatus(true);
     }
 
