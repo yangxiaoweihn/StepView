@@ -6,6 +6,7 @@
 ```
 ## 屏幕截图
     ![StepView](https://raw.githubusercontent.com/yangxiaoweihn/StepView/master/app/screenshots/img.png)
+    ![StepView](https://raw.githubusercontent.com/yangxiaoweihn/StepView/master/screenshots/img.png)
 ## 使用
 -   文本形式递增 递减控件
 ```xml
