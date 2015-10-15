@@ -42,9 +42,9 @@ ext{
     licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
     allLicenses = ["Apache-2.0"]
 
-//    apply from: 'install.gradle'
-//    apply from: 'bintray.gradle'
 }
+    apply from: 'https://raw.githubusercontent.com/yangxiaoweihn/StepView/master/stepview/bintray.gradle'
+    apply from: 'https://github.com/yangxiaoweihn/StepView/blob/master/stepview/install.gradle'
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
