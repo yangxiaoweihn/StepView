@@ -1,4 +1,4 @@
-package ws.dyt.quantityview;
+package ws.dyt.demo;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
