@@ -5,13 +5,9 @@
     compile 'compile ws.dyt.stepview:stepview:0.2@aar'
 ```
 ## 屏幕截图
-    ![StepView](https://raw.githubusercontent.com/yangxiaoweihn/StepView/master/app/screenshots/img.png "StepView")
-    ![StepView](https://raw.githubusercontent.com/yangxiaoweihn/StepView/master/screenshots/img.png)
+![StepView](https://raw.githubusercontent.com/yangxiaoweihn/StepView/master/app/screenshots/img.png)
+![StepView](https://raw.githubusercontent.com/yangxiaoweihn/StepView/master/screenshots/img.png)
     
-### Sample Screen
-    ![QuantityView](https://raw.githubusercontent.com/himanshu-soni/QuantityView/master/screenshots/device-2015-09-29-191352.png)
-    ![QuantityView](https://raw.githubusercontent.com/himanshu-soni/QuantityView/master/screenshots/device-2015-10-09-175354.png)
-    ![QuantityView](https://raw.githubusercontent.com/himanshu-soni/QuantityView/master/screenshots/device-2015-10-09-175420.png)
 ## 使用
 -   文本形式递增 递减控件
 ```xml
