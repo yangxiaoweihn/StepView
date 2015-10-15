@@ -7,9 +7,11 @@ import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -23,6 +25,7 @@ import ws.dyt.stepview.util.DisplayUtil;
 public abstract class BaseStepView extends LinearLayout {
     private static final int DEFAULT_FONT_SIZE = 14;
     protected int defaultFontSize = -1;
+    private View rootView;
     protected RelativeLayout mVgMinus;
     protected RelativeLayout mVgPlus;
     protected EditText mEtInput;
@@ -34,7 +37,7 @@ public abstract class BaseStepView extends LinearLayout {
     private boolean inputIsInput = true;
     private int inputColor;
 
-    static class DataHolder{
+    class DataHolder{
         public int min = 0;
         public int max = 0;
         public int cur = 0;
@@ -64,7 +67,8 @@ public abstract class BaseStepView extends LinearLayout {
                 LayoutParams.MATCH_PARENT,
                 LayoutParams.MATCH_PARENT
         );
-        this.addView(LayoutInflater.from(context).inflate(R.layout.base_step_view, null, false), lp);
+        rootView = LayoutInflater.from(context).inflate(R.layout.base_step_view, null, false);
+        this.addView(rootView, lp);
         // Load attributes
         final TypedArray a = getContext().obtainStyledAttributes(attrs, R.styleable.BaseStepView, defStyle, 0);
 
@@ -81,15 +85,16 @@ public abstract class BaseStepView extends LinearLayout {
         dataHolder.max = a.getInt(R.styleable.BaseStepView_input_max, 0);
         dataHolder.cur = a.getInt(R.styleable.BaseStepView_input_cur, 0);
 
+
         a.recycle();
 
         this.initView();
     }
 
     private void initView(){
-        mVgMinus = (RelativeLayout) findViewById(R.id.vg_minus);
-        mVgPlus = (RelativeLayout) findViewById(R.id.vg_plus);
-        mEtInput = (EditText) findViewById(R.id.et_input);
+        mVgMinus = (RelativeLayout) rootView.findViewById(R.id.vg_minus);
+        mVgPlus = (RelativeLayout) rootView.findViewById(R.id.vg_plus);
+        mEtInput = (EditText) rootView.findViewById(R.id.et_input);
 
         RelativeLayout.LayoutParams lp = new RelativeLayout.LayoutParams(
                 RelativeLayout.LayoutParams.WRAP_CONTENT,
@@ -100,10 +105,10 @@ public abstract class BaseStepView extends LinearLayout {
         mVgPlus.addView(setStepPlusView(), lp);
 
 
+        mEtInput.removeTextChangedListener(tw);
         mEtInput.addTextChangedListener(tw);
         mVgMinus.setOnClickListener(onClickListener);
         mVgPlus.setOnClickListener(onClickListener);
-
         this.flushViewParams();
     }
 
@@ -187,7 +192,8 @@ public abstract class BaseStepView extends LinearLayout {
         @Override
         public void afterTextChanged(Editable s) {
             if (!TextUtils.isEmpty(s.toString()) && TextUtils.isDigitsOnly(s.toString())){
-                dataHolder.cur = Integer.valueOf(s.toString());
+                int e = Integer.valueOf(s.toString());
+                dataHolder.cur = e;
                 if (null != onStepChangeListener){
                     onStepChangeListener.onStepChanged(dataHolder.cur, dataHolder.min, dataHolder.max);
                 }
@@ -237,14 +243,18 @@ public abstract class BaseStepView extends LinearLayout {
     private IOnStepChangeListener onStepChangeListener;
     public void setOnStepChangeListener(IOnStepChangeListener onStepChangeListener){
         this.onStepChangeListener = onStepChangeListener;
-        if (null != onStepChangeListener && !isStepReport){
-            isStepReport = true;
-            if (dataHolder.cur >= dataHolder.min && dataHolder.cur <= dataHolder.max){
-                onStepChangeListener.onStepChanged(dataHolder.cur, dataHolder.min, dataHolder.max);
-            }else {
-                onStepChangeListener.onError();
-            }
-        }
+//        mEtInput.removeTextChangedListener(tw);
+//        mEtInput.addTextChangedListener(tw);
+//        mEtInput.setText(String.valueOf(dataHolder.cur));
+//        if (null != onStepChangeListener && !isStepReport){
+//            isStepReport = true;
+//            if (dataHolder.cur >= dataHolder.min && dataHolder.cur <= dataHolder.max){
+//                Log.e("DEBUG", "istener-cur: " + dataHolder.cur + ", " + this.hashCode()+" , "+mEtInput.hashCode());
+//                onStepChangeListener.onStepChanged(dataHolder.cur, dataHolder.min, dataHolder.max);
+//            }else {
+//                onStepChangeListener.onError();
+//            }
+//        }
     }
 
     public void setStepMinusWeight(float stepMinusWeight) {

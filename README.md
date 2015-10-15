@@ -2,7 +2,7 @@
     一个提供整数递增、递减的简易控件
 ## 添加依赖
 ```
-    compile 'ws.dyt.stepview:stepview:1.0'
+    compile 'compile 'ws.dyt.stepview:stepview:0.1@aar''
 ```
 ## 使用
 -   文本形式递增 递减控件

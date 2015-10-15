@@ -55,14 +55,14 @@
         app:step_minus_drawable_selector="@drawable/step_minus_image_selector"
         app:step_plus_drawable_selector="@drawable/step_plus_image_selector"
         app:input_min="5"
-        app:input_max="10"
+        app:input_max="12"
         app:input_cur="7"
         app:input_font_color="#aabb00"
         />
 
     <ws.dyt.stepview.view.StepTextView
         android:layout_marginTop="20dp"
-        android:id="@+id/aa"
+        android:id="@+id/stepTextViewCus1"
         android:layout_width="250dp"
         android:layout_height="50dp"
         app:step_font_size="22sp"
@@ -75,7 +75,7 @@
         app:step_minus_weight="1.2"
         app:step_plus_weight="1.2"
         app:input_min="0"
-        app:input_max="10"
+        app:input_max="15"
         app:input_cur="5"
         app:input_is_input="false"
         app:input_font_color="@color/colorPrimary"
